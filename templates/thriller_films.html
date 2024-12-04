@@ -1,0 +1,17 @@
+{% extends "basic_template.html" %}
+
+
+{% block into %}
+<title>Триллеры</title>
+<ul>
+    {% for film in films %}
+        <li>
+            <h3>{{ film.name }}</h3>
+            <img src="photo/thriller/{{film.id}}.jpg" alt="{{ film.name }}">
+            <p>{{ film.description }}</p>
+            <p>Год: {{ film.year }}</p>
+            <p>Рейтинг: {{ film.rating }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

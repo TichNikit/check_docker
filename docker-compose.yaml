@@ -1,0 +1,25 @@
+services:
+  app:  # Название сервиса
+    build:
+      context: .  # Указывает на текущую папку, где находится Dockerfile
+    ports:
+      - "8000:8000"  # Проброс локального порта в контейнер
+    volumes:
+      - .:/app  # Пробрасывает текущую директорию в контейнер, чтобы изменения применялись сразу
+    environment:
+      - DATABASE_URL="postgresql+asyncpg://USERNAME:PASSWORD@HOST:PORT/DATABASE"
+    depends_on:  # Зависимость от другого контейнера
+      - db
+
+  db:  # Контейнер для базы данных
+    image: postgres:13  # Используем образ PostgreSQL
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Пробрасываем структуру хранилища в контейнер
+    environment:
+      POSTGRES_DB: DATABASE  # Имя базы данных
+      POSTGRES_USER: USERNAME  # Имя пользователя базы данных
+      POSTGRES_PASSWORD: PASSWORD  # Пароль пользователя базы данных
+
+volumes:
+  db_data:  # Определяем том для хранения данных Postgres

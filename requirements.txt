@@ -1,0 +1,8 @@
+sqlalchemy
+fastapi
+bs4
+requests
+uvicorn
+asyncpg
+jinja2
+alembic

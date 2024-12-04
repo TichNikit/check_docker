@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<title>Фильм на вечер</title>
+<br>
+<h3>Советуем вам посмотреть фильм: {{ film }}</h3>
+<img src="{{ film_image_url }}" alt="{{ film }}">
+<h3>Его можно найти по ссылке: <a href="{{ film_url }}" target="_blank">{{ film_url }}</a></h3>
+<p>{{ error }}<p>
+</body>
+</html>
